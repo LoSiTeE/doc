@@ -1,4 +1,4 @@
 payload:
-- DOMAIN-SUFFIX,javdb.com
-- DOMAIN-SUFFIX,javlibrary.com
-- DOMAIN-KEYWORD,jdbstatic.com
+- DOMAIN,javdb.com
+- DOMAIN,javlibrary.com
+- DOMAIN,c0.jdbstatic.com
