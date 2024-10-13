@@ -1,4 +1,3 @@
-payload:
-- DOMAIN,javdb.com
-- DOMAIN,javlibrary.com
-- DOMAIN,c0.jdbstatic.com
+DOMAIN,javdb.com
+DOMAIN,javlibrary.com
+DOMAIN,c0.jdbstatic.com
