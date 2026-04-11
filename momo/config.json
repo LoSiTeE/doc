@@ -30,7 +30,7 @@
           }
         ],
         "server": "google",
-        "client_subnet": "114.114.114.114/24" // Any China client IP address
+        "client_subnet": "114.114.114.114/24"
       }
     ]
   },
@@ -55,26 +55,7 @@
         "format": "binary",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"
       }
-    ]
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "store_rdrc": true
-    },
-    "clash_api": {
-      "default_mode": "Enhanced"
-    }
-  }
-}
-{
-  "outbounds": [
-    {
-      "type": "direct",
-      "tag": "direct"
-    }
-  ],
-  "route": {
+    ],
     "rules": [
       {
         "action": "sniff"
@@ -131,20 +112,21 @@
         ],
         "outbound": "direct"
       }
-    ],
-    "rule_set": [
-      {
-        "type": "remote",
-        "tag": "geoip-cn",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-geolocation-cn",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs"
-      }
     ]
+  },
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "store_rdrc": true
+    },
+    "clash_api": {
+      "default_mode": "Enhanced"
+    }
   }
 }
