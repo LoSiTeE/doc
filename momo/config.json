@@ -42,6 +42,12 @@
       "strict_route": true
     }
   ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
   "route": {
     "default_domain_resolver": "local",
     "rule_set": [
@@ -122,12 +128,6 @@
       }
     ]
   },
-  "outbounds": [
-    {
-      "type": "direct",
-      "tag": "direct"
-    }
-  ],
   "experimental": {
     "cache_file": {
       "enabled": true,
