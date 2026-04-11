@@ -30,24 +30,10 @@
           }
         ],
         "server": "google",
-        "client_subnet": "114.114.114.114/24"
+        "client_subnet": "114.114.114.114/24" // Any China client IP address
       }
     ]
   },
-  "inbounds": [
-    {
-      "type": "tun",
-      "address": ["172.19.0.1/30"],
-      "auto_route": true,
-      "strict_route": true
-    }
-  ],
-  "outbounds": [
-    {
-      "type": "direct",
-      "tag": "direct"
-    }
-  ],
   "route": {
     "default_domain_resolver": "local",
     "rule_set": [
@@ -68,63 +54,6 @@
         "tag": "geoip-cn",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"
-      }
-    ],
-    "rules": [
-      {
-        "action": "sniff"
-      },
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": 53
-          }
-        ],
-        "action": "hijack-dns"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 853
-          },
-          {
-            "network": "udp",
-            "port": 443
-          },
-          {
-            "protocol": "stun"
-          }
-        ],
-        "action": "reject"
-      },
-      {
-        "rule_set": "geosite-geolocation-cn",
-        "outbound": "direct"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geoip-cn"
-          },
-          {
-            "rule_set": "geosite-geolocation-!cn",
-            "invert": true
-          }
-        ],
-        "outbound": "direct"
       }
     ]
   },
